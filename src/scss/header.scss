@@ -1,0 +1,83 @@
+// header ====================================================================================================
+.header {
+	background-color: var(--bgColor);
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--bgColor);
+	}
+
+	// .header__container
+	&__container {
+		max-width: rem(1430);
+	}
+
+	// .header__menu
+	&__menu {
+		display: flex;
+		align-items: center;
+		padding-top: rem(33);
+		padding-bottom: rem(33);
+		position: relative;
+		z-index: 1;
+	}
+
+	// .header__logo
+	&__logo {
+	}
+}
+
+.menu {
+	// .menu__icon
+	&__icon {
+		position: fixed;
+	}
+
+	// .menu__body
+	&__body {
+		flex: 1;
+		@include adaptiveValue("padding-left", 83, 43);
+	}
+
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		@include adaptiveValue("column-gap", 30, 15);
+		row-gap: rem(10);
+	}
+
+	// .menu__item
+	&__item {
+	}
+
+	// .menu__link
+	&__link {
+		font-size: rem(14);
+		line-height: 1;
+	}
+}
+
+.logo {
+	// .logo__link
+	&__link {
+	}
+
+	// .logo__icon
+	&__icon {
+	}
+}
+
+.icon-menu {
+	font-size: rem(23);
+
+	.menu-open & {
+	}
+}

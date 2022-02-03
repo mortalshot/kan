@@ -1,0 +1,32 @@
+// Заголовки, общие БЄМ блоки и проче...
+.link-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(106);
+    height: rem(106);
+    border-radius: 50%;
+    background-color: var(--mainColor);
+    color: var(--bgColor);
+    font-size: rem(24);
+    transition: $transition ease transform 0s;
+
+    @media (any-hover: hover) {
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+._text-line {
+    opacity: 0;
+    transform: translateY(100%) rotateX(-80deg);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &.is-inview {
+        opacity: 1;
+        transform: none;
+    }
+}

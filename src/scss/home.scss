@@ -1,0 +1,96 @@
+// preview ====================================================================================================
+.preview {
+    font-weight: 300;
+    padding-top: rem(125);
+
+    // .preview__container
+    &__container {
+    }
+
+    // .preview__top
+    &__top {
+        display: grid;
+        grid-template-columns: 1fr percent(444, 1272);
+    }
+
+    // .preview__body
+    &__body {
+    }
+
+    // .preview__title
+    &__title {
+        font-size: rem(100);
+        line-height: 1;
+
+        &:not(:last-child) {
+            margin-bottom: rem(64);
+        }
+    }
+
+    // .preview__tagline
+    &__tagline {
+        font-size: rem(46);
+        line-height: math.div(55, 46);
+        max-width: rem(500);
+    }
+
+    // .preview__image
+    &__image {
+        margin-top: rem(175);
+    }
+
+    // .preview__categories
+    &__categories {
+        font-size: rem(70);
+        line-height: math.div(84, 70);
+        max-width: rem(811);
+
+        &:not(:first-child) {
+            margin-top: rem(283);
+        }
+    }
+}
+
+//====================================================================================================
+
+.noise-image {
+    // .noise-image__noise
+    &__noise {
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: rem(444);
+            height: rem(437);
+            z-index: 2;
+            mix-blend-mode: overlay;
+        }
+    }
+
+    // .noise-image__img
+    &__img {
+        position: relative;
+        padding-bottom: percent(437, 444);
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-position: left top;
+            object-fit: cover;
+            z-index: 1;
+        }
+    }
+
+    // .noise-image__background
+    &__background {
+        position: absolute;
+        width: rem(444);
+        height: rem(437);
+        left: 0;
+        top: 0;
+        background: linear-gradient(103.06deg, #141947 14.52%, #252c70 34.16%, #484d69 56.57%, #4b4f63 73.32%, #5c5c40 90.57%), linear-gradient(125.2deg, #343d91 19.06%, #484d69 54.65%, #4b4f63 70.46%, #5c5c40 91.3%);
+    }
+}

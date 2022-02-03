@@ -1,0 +1,465 @@
+@charset "UTF-8";
+@font-face {
+  font-family: HelveticaNeueCyr;
+  font-display: swap;
+  src: url("../fonts/HelveticaNeueCyr-Light.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: HelveticaNeueCyr;
+  font-display: swap;
+  src: url("../fonts/HelveticaNeueCyr-Regular.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+[class*=_icon-]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*=_icon-]:before {
+  display: block;
+}
+
+._icon-link:before {
+  content: "\e900";
+}
+
+._icon-logo:before {
+  content: "\e901";
+}
+
+._icon-skype:before {
+  content: "\e902";
+}
+
+._icon-telegram:before {
+  content: "\e903";
+}
+
+._icon-whatsapp:before {
+  content: "\e904";
+}
+
+._icon-arrow:before {
+  content: "\e905";
+}
+
+._icon-burger:before {
+  content: "\e906";
+}
+
+html.dark {
+  --mainColor: #d1d1d1;
+  --bgColor: #191a1d;
+}
+
+html.light {
+  --mainColor: #191a1d;
+  --bgColor: #fff;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: var(--mainColor);
+  line-height: 1;
+  font-family: "HelveticaNeueCyr";
+  font-size: 1.125rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bgColor);
+}
+
+input,
+button,
+textarea {
+  font-family: "HelveticaNeueCyr";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*=__container] {
+  max-width: 79.5rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  object-fit: contain;
+}
+
+.link-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.625rem;
+  height: 6.625rem;
+  border-radius: 50%;
+  background-color: var(--mainColor);
+  color: var(--bgColor);
+  font-size: 1.5rem;
+  transition: 0.3s ease transform 0s;
+}
+@media (any-hover: hover) {
+  .link-circle:hover {
+    transform: rotate(360deg);
+  }
+}
+
+._text-line {
+  opacity: 0;
+  transform: translateY(100%) rotateX(-80deg);
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+._text-line.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+.header {
+  background-color: var(--bgColor);
+  position: relative;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bgColor);
+}
+.header__container {
+  max-width: 89.375rem;
+}
+.header__menu {
+  display: flex;
+  align-items: center;
+  padding-top: 2.0625rem;
+  padding-bottom: 2.0625rem;
+  position: relative;
+  z-index: 1;
+}
+.menu__icon {
+  position: fixed;
+}
+.menu__body {
+  flex: 1;
+}
+@media (min-width: 81.375em) {
+  .menu__body {
+    padding-left: 5.1875rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 81.375em) {
+  @supports (padding-left: clamp( 2.6875rem , 1.8728360489rem  +  4.0733197556vw , 5.1875rem )) {
+    .menu__body {
+      padding-left: clamp( 2.6875rem , 1.8728360489rem  +  4.0733197556vw , 5.1875rem );
+    }
+  }
+  @supports not (padding-left: clamp( 2.6875rem , 1.8728360489rem  +  4.0733197556vw , 5.1875rem )) {
+    .menu__body {
+      padding-left: calc(2.6875rem + 2.5 * (100vw - 20rem) / 61.375);
+    }
+  }
+}
+@media (max-width: 20em) {
+  .menu__body {
+    padding-left: 2.6875rem;
+  }
+}
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 0.625rem;
+}
+@media (min-width: 81.375em) {
+  .menu__list {
+    column-gap: 1.875rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 81.375em) {
+  @supports (column-gap: clamp( 0.9375rem , 0.6320010183rem  +  1.5274949084vw , 1.875rem )) {
+    .menu__list {
+      column-gap: clamp( 0.9375rem , 0.6320010183rem  +  1.5274949084vw , 1.875rem );
+    }
+  }
+  @supports not (column-gap: clamp( 0.9375rem , 0.6320010183rem  +  1.5274949084vw , 1.875rem )) {
+    .menu__list {
+      column-gap: calc(0.9375rem + 0.9375 * (100vw - 20rem) / 61.375);
+    }
+  }
+}
+@media (max-width: 20em) {
+  .menu__list {
+    column-gap: 0.9375rem;
+  }
+}
+.menu__link {
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.icon-menu {
+  font-size: 1.4375rem;
+}
+.preview {
+  font-weight: 300;
+  padding-top: 7.8125rem;
+}
+.preview__top {
+  display: grid;
+  grid-template-columns: 1fr 34.9056603774%;
+}
+.preview__title {
+  font-size: 6.25rem;
+  line-height: 1;
+}
+.preview__title:not(:last-child) {
+  margin-bottom: 4rem;
+}
+.preview__tagline {
+  font-size: 2.875rem;
+  line-height: 1.1956521739;
+  max-width: 31.25rem;
+}
+.preview__image {
+  margin-top: 10.9375rem;
+}
+.preview__categories {
+  font-size: 4.375rem;
+  line-height: 1.2;
+  max-width: 50.6875rem;
+}
+.preview__categories:not(:first-child) {
+  margin-top: 17.6875rem;
+}
+
+.noise-image__noise img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 27.75rem;
+  height: 27.3125rem;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+.noise-image__img {
+  position: relative;
+  padding-bottom: 98.4234234234%;
+}
+.noise-image__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-position: left top;
+  object-fit: cover;
+  z-index: 1;
+}
+.noise-image__background {
+  position: absolute;
+  width: 27.75rem;
+  height: 27.3125rem;
+  left: 0;
+  top: 0;
+  background: linear-gradient(103.06deg, #141947 14.52%, #252c70 34.16%, #484d69 56.57%, #4b4f63 73.32%, #5c5c40 90.57%), linear-gradient(125.2deg, #343d91 19.06%, #484d69 54.65%, #4b4f63 70.46%, #5c5c40 91.3%);
+}
+/*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+
+[data-scroll-direction=horizontal] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-scroll-direction=horizontal] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+
+[data-scroll-direction=horizontal] .c-scrollbar {
+  width: 100%;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  transform: scaleY(1);
+}
+
+[data-scroll-direction=horizontal] .c-scrollbar:hover {
+  transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+[data-scroll-direction=horizontal] .c-scrollbar_thumb {
+  right: auto;
+  bottom: 0;
+}

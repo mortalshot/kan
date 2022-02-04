@@ -30,3 +30,38 @@
         transform: none;
     }
 }
+
+section {
+    position: relative;
+    z-index: 1;
+    background-color: var(--bgColor);
+}
+
+.swiper {
+    // .swiper__buttons
+    &__buttons {
+        display: flex;
+        align-items: center;
+        margin: rem(-10) 0;
+
+        & > * {
+            padding: rem(10) 0;
+            cursor: pointer;
+            
+            &:not(:last-child) {
+                margin-right: rem(60);
+            }
+        }
+
+        // .swiper-button-prev
+        .swiper-button-prev {
+            &::before {
+                transform: rotate(180deg);
+            }
+        }
+
+        // .swiper-button-next
+        .swiper-button-next {
+        }
+    }
+}

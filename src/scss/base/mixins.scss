@@ -47,12 +47,6 @@
 	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
 		$widthFrom: $maxWidth;
 	}
-	@if ($minSize <= 0) {
-		$minSize: 0.0001;
-	}
-	@if ($startSize <= 0) {
-		$startSize: 0.0001;
-	}
 
 	// Брейк-поинты в EM
 	$widthFromMedia: em($widthFrom);
@@ -71,24 +65,24 @@
 		$propertyValue: #{"clamp(" rem($startSize) "," $flyValue "," rem($minSize) ")"};
 	}
 
-	@if $widthFrom == $containerWidth or $widthFrom == $maxWidth or $keepSize == 1 or $keepSize == 2 {
+	// Если поддерживается clamp();
+	@supports (#{$property}: $propertyValue) {
+		#{$property}: $propertyValue;
+	}
+	// Если не поддерживается clamp();
+	@supports not (#{$property}: $propertyValue) {
+		#{$property}: calc(#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)});
+	}
+
+	// Устанавливаем значения по умолчанию
+	@if $widthFrom != $containerWidth and $widthFrom != $maxWidth and $keepSize != 1 and $keepSize != 2 {
 		@media (min-width: $widthFromMedia) {
-			#{$property}: rem($startSize);
+			#{$property}: inherit;
 		}
 	}
-	@media (min-width: $widthToMedia) and (max-width: $widthFromMedia) {
-		// Если поддерживается clamp();
-		@supports (#{$property}: $propertyValue) {
-			#{$property}: $propertyValue;
-		}
-		// Если не поддерживается clamp();
-		@supports not (#{$property}: $propertyValue) {
-			#{$property}: calc(#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)});
-		}
-	}
-	@if $widthTo == $minWidth or $keepSize == 1 or $keepSize == 3 {
+	@if $widthTo != $minWidth and $keepSize != 1 and $keepSize != 3 {
 		@media (max-width: $widthToMedia) {
-			#{$property}: rem($minSize);
+			#{$property}: inherit;
 		}
 	}
 }

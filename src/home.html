@@ -8,7 +8,7 @@
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
 		<main class="page" data-scroll-container>
-			<section class="preview" data-scroll-section>
+			<section class="preview">
 				<div class="preview__container">
 					<div class="preview__top">
 						<div class="preview__body">
@@ -18,25 +18,27 @@
 								<button type="button" class="_icon-link link-circle"></button>
 							</div>
 						</div>
-						<div class="preview__image noise-image" data-scroll data-scroll-speed="-5">
-							<div class="noise-image__noise"><img src="img/moon-noise.png" alt="" loading="lazy"></div>
-							<div class="noise-image__img"><img src="img/moon.svg" alt="" loading="lazy"></div>
-							<div class="noise-image__background"></div>
+						<div class="preview__image noise-image" data-scroll>
+							<div class="noise-image__img">
+								@@include('files/moon-img.htm',{})
+							</div>
 						</div>
 					</div>
 
-					<div class="preview__categories _text-line" data-scroll>
+					<div class="preview__categories _text-line" data-scroll data-scroll-speed="5">
 						Do you need <a href="">Design</a>, <a href="">Web Development</a>, <a href="">Branding</a>, <a href="">Applications</a>, <a href="">Marketing</a>, <a href="">SEO Promotion</a>?
 					</div>
 				</div>
 			</section>
 
-			<section class="team" data-scroll-section>
+
+
+			<section class="team">
 				<div class="team__container">
 					<div class="team__image noise-image" data-scroll data-scroll-speed="-2">
-						<div class="noise-image__noise"><img src="img/team-noise.png" alt="" loading="lazy"></div>
-						<div class="noise-image__img"><img src="img/team.svg" alt="" loading="lazy"></div>
-						<div class="noise-image__background"></div>
+						<div class="noise-image__img">
+							@@include('files/team-img.htm',{})
+						</div>
 					</div>
 
 					<div class="team__body">
@@ -63,7 +65,7 @@
 				</div>
 			</section>
 
-			<section class="cases" data-scroll-section>
+<!-- 			<section class="cases" data-scroll-section>
 				<div class="cases__slider swiper">
 					<h2 class="cases__title">Cases</h2>
 					<div class="cases__wrapper swiper-wrapper">
@@ -101,7 +103,7 @@
 						<div class="swiper-button-next _icon-arrow"></div>
 					</div>
 				</div>
-			</section>
+			</section> -->
 
 			<br>
 			<br>

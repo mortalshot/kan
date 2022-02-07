@@ -2,53 +2,21 @@
     width: rem(444);
     height: rem(437);
 
-    // .noise-image__noise
-    &__noise {
-        img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: rem(444);
-            height: rem(437);
-            z-index: 2;
-            mix-blend-mode: overlay;
-            pointer-events: none;
-        }
-    }
-
     // .noise-image__img
     &__img {
-        position: relative;
-
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: rem(444);
-            height: rem(437);
-            object-position: left top;
-            object-fit: cover;
-            z-index: 1;
-        }
-    }
-
-    // .noise-image__background
-    &__background {
-        pointer-events: none;
-        position: absolute;
         width: rem(444);
         height: rem(437);
-        left: 0;
-        top: 0;
-        background: linear-gradient(103.06deg, #141947 14.52%, #252c70 34.16%, #484d69 56.57%, #4b4f63 73.32%, #5c5c40 90.57%), linear-gradient(125.2deg, #343d91 19.06%, #484d69 54.65%, #4b4f63 70.46%, #5c5c40 91.3%);
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
     }
 }
 
 // preview ====================================================================================================
 .preview {
     font-weight: 300;
-    padding-top: rem(125);
-    padding-bottom: rem(125);
+    padding-top: rem(100);
+    padding-bottom: rem(100);
     overflow: hidden;
     background-color: var(--bgColor);
 
@@ -65,7 +33,7 @@
     // .preview__body
     &__body {
         position: relative;
-        z-index: 1;
+        z-index: 2;
     }
 
     // .preview__title
@@ -90,12 +58,17 @@
         margin-top: rem(175);
     }
 
+    #image1-body {
+        transform: translate(-920px, -70px);
+    }
+
     // .preview__categories
     &__categories {
-        font-size: rem(70);
+        font-size: rem(56);
         line-height: math.div(84, 70);
         max-width: rem(811);
         position: relative;
+        z-index: 2;
 
         &:not(:first-child) {
             margin-top: rem(283);
@@ -211,7 +184,7 @@
         line-height: math.div(96, 80);
         position: relative;
         z-index: 1;
-        
+
         &:not(:last-child) {
             margin-bottom: rem(60);
         }
@@ -269,7 +242,7 @@
                         transition: $transition ease transform 0s;
                     }
 
-                    .noise-image__img img{
+                    .noise-image__img img {
                         height: rem(861);
                         transition: $transition ease all 0s;
                     }

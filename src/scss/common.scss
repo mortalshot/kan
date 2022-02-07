@@ -1,4 +1,7 @@
 // Заголовки, общие БЄМ блоки и проче...
+[data-scroll-container] {
+    overflow-y: hidden !important;
+}
 .link-circle {
     display: inline-flex;
     align-items: center;
@@ -47,7 +50,7 @@ section {
         & > * {
             padding: rem(10) 0;
             cursor: pointer;
-            
+
             &:not(:last-child) {
                 margin-right: rem(60);
             }
